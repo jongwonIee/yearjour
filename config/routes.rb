@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  root 'home#index'
+  root 'home#main'
+  get ':controller(/:action(/:id))'
+  post ':controller(/:action(/:id))'
+  
+  get 'reply_destroy/:id' => 'home#reply_destroy'
+  get 'destroy/:id' => 'home#destroy'
+  get 'reply_update_view/:id' => 'home#reply_update_view'
+  post '/reply_update_act/:id' => 'home#reply_update_act'
+  get 'update_view/:id' => 'home#update_view'
+  post '/update_act/:id' => 'home#update_act'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
