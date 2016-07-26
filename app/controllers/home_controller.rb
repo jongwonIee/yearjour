@@ -1,8 +1,20 @@
 class HomeController < ApplicationController
   def index
     
-    @posts = Post.all
+    @posts = Post.all.reverse
 
+  end
+  
+  def create
+    post = Post.new(title: params[:title], content: params[:content], place: params[:place], date: params[:date],
+      food: params[:food], citytour: params[:citytour], suburbtour: params[:suburbtour], guidetour: params[:guidetour],
+      concert: params[:concert], sports: params[:sports], gallery: params[:gallery], museum: params[:museum],
+      historic: params[:historic], room: params[:room], car: params[:car]
+      )
+    
+    if post.save
+      redirect_to "/home/index"
+    end
   end
   
   def upload
@@ -17,9 +29,11 @@ class HomeController < ApplicationController
   end
 
   def write
-
-    @howmany = params[:content]
-    post = Post.new(title: params[:title], content: params[:content])
+      post = Post.new(title: params[:title], content: params[:content], place: params[:place], date: params[:date],
+      food: params[:food], citytour: params[:citytour], suburbtour: params[:suburbtour], guidetour: params[:guidetour],
+      concert: params[:concert], sports: params[:sports], gallery: params[:gallery], museum: params[:museum],
+      historic: params[:historic], room: params[:room], car: params[:car]
+      )
     
     if post.save
       redirect_to "/home/index"
@@ -78,6 +92,5 @@ class HomeController < ApplicationController
     
     redirect_to '/home/index'
   end  
-  
 
 end

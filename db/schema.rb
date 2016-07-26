@@ -16,6 +16,19 @@ ActiveRecord::Schema.define(version: 20160725080428) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "place"
+    t.string   "date"
+    t.boolean  "food"
+    t.boolean  "citytour"
+    t.boolean  "suburbtour"
+    t.boolean  "guidetour"
+    t.boolean  "concert"
+    t.boolean  "sports"
+    t.boolean  "gallery"
+    t.boolean  "museum"
+    t.boolean  "historic"
+    t.boolean  "room"
+    t.boolean  "car"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
