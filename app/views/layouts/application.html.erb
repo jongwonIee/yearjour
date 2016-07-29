@@ -12,10 +12,117 @@
   
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
+  <script src="https://use.fontawesome.com/8272468f5b.js"></script>
     
+  <script
+	  src="https://code.jquery.com/jquery-3.1.0.min.js"
+	  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+	  crossorigin="anonymous"></script>
+	  
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="/assets/jquery-labelauty.js"></script>
+
+			  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+  <style>
+    
+    @font-face {
+      font-family: 'yoon'; 
+      font-weight: 100;
+      src: url('yoon310.ttf');
+
+    }
+    
+    @font-face {
+      font-family: 'yoon';
+      font-weight: 200;
+      src: url('yoon320.ttf');
+    }
+    
+    @font-face {
+      font-family: 'yoon';
+      font-weight: normal;
+      src: url("yoon330.ttf") format('truetype');
+    }
+    
+    @font-face {
+      font-family: 'yoon';
+      font-weight: 700;
+      src: url('yoon340.ttf');
+    }
+    
+    @font-face {
+      font-family: 'yoon' ;
+      font-weight: 800;
+      src: url('yoon350.ttf');
+    }
+    
+    @font-face {
+      font-family: 'yoon' ;
+      font-weight: 900;
+      src: url('yoon360.ttf');
+      
+    }
+    
+    * {
+      font-family: 'yoon';
+    }    
+  
+    img {
+        max-width: 100%;
+    }
+    
+    #content {
+      padding-top: 70px;
+      /*margin-bottom: 50px */    /* revive when there is a footer */
+    }
+    
+    .h {
+      height: 100%;
+    }
+    
+    #header{
+      background-color: #aad7d7;
+      height: 4em;
+      width: 100%;
+    }
+   
+    #hright {
+      position: absolute;
+      right: 5%;
+    }
+    
+    #hright2 {
+        
+      position: absolute;
+      right: 15%;
+    }
+    
+    #hback {
+     position: absolute;
+     left: 5%;
+    }
+    
+    #footer {
+      height: 2.5em;
+      width: 100%;
+      background-color: white;
+    }
+    
+  </style>
+  
+  <script>
+    //go back javascript
+    function goBack() {
+        window.history.back();
+    }
+  </script>
+  
+  <link rel="stylesheet" href="/assets/jquery-labelauty.css" type="text/css" media="screen" charset="utf-8" />
 </head>
 <body>
 

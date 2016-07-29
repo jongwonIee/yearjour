@@ -1,0 +1,219 @@
+<head>
+  
+  <link type="text/css" rel="stylesheet" href="create_result.css"/>
+  
+</head>
+
+<div class="container">
+<% p = @posts %>
+
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+    <div class="row">
+        <nav class="navbar navbar-fixed-top">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="header">
+                    <a href="/home/search_result"><img id="hback" class="h" src="/assets/header/h_back.png" alt="header back"></a>
+                    <img class="h" src="/assets/header/h_createresult.png" alt="header title">
+                    <a href="/home/search"><img id="hright2" class="h" src="/assets/header/headerleft.png" alt="header search"></a>
+                    <img id="hright" class="h" src="/assets/header/h_side.png" alt="header hamburger">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+
+    <div id="content">
+
+<!-- 제목 출력 begin -->   
+        <div class="col-md-12 col-xs-12">
+            <center><h1 id="title">"<%= p.title %>"</h1></center> 
+        </div>
+<!-- 제목 출력 end -->            
+            
+<!--  간략 안내바 begin -->
+        <div class="row"> 
+            <div class="col-md-4 col-xs-4">
+                <i class="fa fa-calendar" aria-hidden="true"></i> 
+                <%= p.date %>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                <%= p.time %>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <i class="fa fa-users" aria-hidden="true"></i> 
+                <%= p.people %>
+            </div>
+        </div>
+        
+        <div class="row" >
+            <div class="col-md-12 col-xs-12" id="purpose">
+                <i class="fa fa-check-square-o" aria-hidden="true"></i> 
+                    <% if p.food == true %>
+                        <%= "식사 |" %>
+                    <% end %>
+                    
+                    <% if p.citytour == true %>
+                        <%= "시내 투어 |" %>
+                    <% end %>
+                    
+                    <% if p.suburbtour == true %>
+                        <%= "근교 투어 |" %>
+                    <% end %>
+                    
+                    <% if p.guidetour == true %>
+                        <%= "가이드 투어 |" %>
+                    <% end %>
+                    
+                    <% if p.concert == true %>
+                        <%= "콘서트 |" %>
+                    <% end %>
+                    
+                    <% if p.sports == true %>
+                        <%= "스포츠 |" %>
+                    <% end %>
+                    
+                    <% if p.gallery == true %>
+                        <%= "갤러리 |" %>
+                    <% end %>
+                    
+                    <% if p.museum == true %>
+                        <%= "박물관 |" %>
+                    <% end %>
+                    
+                    <% if p.historic == true %>
+                        <%= "유적지 |" %>
+                    <% end %>
+                    
+                    <% if p.room == true %>
+                        <%= "룸 쉐어링 |" %>
+                    <% end %>
+                    
+                    <% if p.car == true %>
+                        <%= "카 쉐어링 |" %>
+                    <% end %>
+            </div>
+        </div>
+<!--  간략 안내바 end -->      
+
+<!-- 모임 참가 완료 안내 begin -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center"> 
+                <button id="participate">모임 참여함 </button>
+            </div>
+        </div>   
+<!-- 모임 참가 완료 안내 end -->
+<br>
+<br>
+
+<!-- 소개 begin -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row"> 
+                <div class="sticker3">소개</div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <p><%= p.content %></p>
+            </div>
+            
+            <div class="row">
+                <hr id="break5" >
+            </div>
+        </div>               
+<!-- 소개 end -->            
+
+<!-- 참가자 begin -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row"> 
+                <div class="sticker3">참가하는 사람</div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div id="personacon">
+                    <img src="/assets/jiyoon.png">
+                    <p class="personlabel">지유닝</p>
+                </div>
+
+                <div id="personacon">
+                    <img id="emptycircle" src="/assets/emptycircle.png">
+                    <p class="personlabel"> </p>
+                </div>
+
+                <div id="personacon">
+                    <img id="emptycircle" src="/assets/emptycircle.png">
+                    <p class="personlabel"> </p>
+                </div>
+                
+                <div id="personacon">
+                    <img id="emptycircle" src="/assets/emptycircle.png">
+                    <p class="personlabel"> </p>
+                </div>
+                
+                <div id="personacon">
+                    <img id="emptycircle" src="/assets/emptycircle.png">
+                    <p class="personlabel"> </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <hr id="break" style="margin-top: 10px">
+            </div>
+        </div>               
+<!-- 참가자 end -->     
+
+<!-- 대화하기 begin -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row"> 
+                <div id="chatsticker" class="sticker3">대화하기</div> 
+                <span style="font-weight: 200">(1명 참여 중) </span>
+            </div>
+        
+        
+            <div class="row">
+                <hr id="break" style="margin-top: 10px">
+            </div>
+        </div>
+ <!-- 대화하기  end -->     
+
+<!-- 장소 begin -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row"> 
+                <div class="sticker3">만나는 장소</div> 
+            </div>
+        </div>
+        
+        <div class="row"> 
+            <div class="col-md-4 col-xs-6" style="margin-bottom: 0px">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> 
+                <%= p.region %>
+            </div>
+            <div class="col-md-4 col-xs-6"style="margin-bottom: 0px">
+                <i class="fa fa-map" aria-hidden="true"></i> 
+                <%= p.place %>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <img src="/assets/parismap2.png">    
+            </div>
+        </div>
+<!-- 장소 end -->    
+ 
+    </div> <!-- content container close -->
+
+
+<!-- ******************** FOOTER DO NOT TOUCH EXCEPT CHANGE COLOR  -->          
+    <div class="row">
+        <nav class="navbar navbar-dafult navbar-fixed-bottom">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="footer">
+                    <a href="/home/main"><img class="h" src="/assets/footer/fhome-g" alt="footer home grey"></a>
+                    <img class="h" src="/assets/footer/falarm-g" alt="footer alarm grey">
+                    <img class="h" src="/assets/footer/fchat-g" alt="footer chat grey">
+                    <img class="h" src="/assets/footer/fprofile-g" alt="footer profile grey">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- ******************** FOOTER DO NOT TOUCH EXCEPT CHANGE COLOR  -->    
+
+</div> <!-- div class container close -->

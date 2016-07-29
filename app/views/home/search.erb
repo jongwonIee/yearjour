@@ -1,0 +1,143 @@
+<head>
+  
+  <link type="text/css" rel="stylesheet" href="search.css"/>
+  
+</head>
+
+<div class="container">
+
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+    <div class="row">
+        <nav class="navbar navbar-fixed-top">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="header"> 
+                    <img id="hback" onclick="goBack()" class="h" src="/assets/header/h_back.png" alt="header back"></a>
+                    <img class="h" src="/assets/header/h_search.png" alt="header title">
+                    <a href="/home/search"><img id="hright2" class="h" src="/assets/header/headerleft.png" alt="header search"></a>
+                    <img id="hright" class="h" src="/assets/header/h_side.png" alt="header hamburger">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+
+    <div id="content">
+    <form action="/home/search_result" method="POST">
+
+<!-- 지역 입력 창 begin --> 
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+              <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>  <input name="region" id="titleinput" type="text" placeholder="어디로 가시나요?">
+            </div> 
+              
+            <div class="row">
+                <hr id="break">
+            </div>
+<!--  지역 입력 창 end --> 
+
+<!-- 날짜 입력 창 begin-->
+            <div class="row">
+              <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>  <input name="date" id="titleinput" type="text" placeholder="언제 가시나요?">
+            </div> 
+              
+            <div class="row">
+                <hr id="break">
+            </div>
+<!-- 날짜 입력 창 end-->
+
+<!-- 목적 begin-->
+            <div class="row">
+              <i class="fa fa-check-square-o fa-2x" aria-hidden="true"></i>  <span id="what">무엇이 하고 싶으세요?</span>
+            </div> 
+        <br>
+        </div>
+        
+        <div class="row" style="text-align :center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="food" data-labelauty="|" unchecked value="true"> 식사         
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="citytour" data-labelauty="|" unchecked value="true"> 시내동행      
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="suburbtour" data-labelauty="|" unchecked value="true"> 근교방문      
+            </div>
+        <br>
+        </div>
+        
+        <div class="row" style="text-align :center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="guidetour" data-labelauty="|" unchecked value="true"> 가이드투어      
+            </div>
+        
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="concert" data-labelauty="|" unchecked value="true"> 콘서트         
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="sports" data-labelauty="|" unchecked value="true"> 스포츠      
+            </div>
+        <br>            
+        </div>
+
+        <div class="row" style="text-align :center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="gallery" data-labelauty="|" uncheckedvalue="true"> 미술관      
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="museum" data-labelauty="|" unchecked value="true"> 박물관      
+            </div>
+
+            <div class="col-md-4 col-xs-4" >
+              <input class="purposecheck" type="checkbox" name="historic" data-labelauty="|" unchecked value="true"> 유적지        
+            </div>
+                    
+        </div>
+        
+        <div class="row" style="text-align: center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="room" data-labelauty="|" unchecked value="true"> 룸 쉐어링      
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="car" data-labelauty="|" unchecked value="true"> 카 쉐어링  
+            </div>
+        </div>        
+
+<!-- 목적 end-->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <button id="searchbutton" type="submit" style="float:right;">검색</button>            
+            </div>
+        </div>
+
+
+    </form>
+    </div> <!-- content container close -->
+
+
+<!-- ******************** FOOTER DO NOT TOUCH EXCEPT CHANGE COLOR  -->          
+    <div class="row">
+        <nav class="navbar navbar-dafult navbar-fixed-bottom">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="footer">
+                    <img class="h" src="/assets/footer/fhome-g" alt="footer home grey">
+                    <img class="h" src="/assets/footer/falarm-g" alt="footer alarm grey">
+                    <img class="h" src="/assets/footer/fchat-g" alt="footer chat grey">
+                    <img class="h" src="/assets/footer/fprofile-g" alt="footer profile grey">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- ******************** FOOTER DO NOT TOUCH EXCEPT CHANGE COLOR  -->    
+
+</div> <!-- div class container close -->
+
+<script>
+    $(document).ready(function(){
+    $(".purposecheck").labelauty();
+    });  
+</script>

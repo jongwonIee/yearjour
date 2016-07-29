@@ -1,0 +1,173 @@
+<head>
+  
+  <link type="text/css" rel="stylesheet" href="filter.css"/>
+  
+</head>
+
+
+
+<div class="container">
+
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+    <div class="row">
+        <nav class="navbar navbar-fixed-top">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="header">
+                    <img id="hback" onclick="goBack()" class="h" src="/assets/header/h_back.png" alt="header back"></a>
+                    <img class="h" src="/assets/header/h_filter.png" alt="header title">
+                    <a href="/home/search"><img id="hright2" class="h" src="/assets/header/headerleft.png" alt="header search"></a>
+                    <img id="hright" class="h" src="/assets/header/h_side.png" alt="header hamburger">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+
+    <div id="content">
+    <form action="/home/filter_result" method="post">
+<!-- 추가항목 입력 begin --> 
+
+        <div class="row"> 
+            <div class="col-md-3 col-md-offset-3 col-xs-6 col-xs-offset-0 ">
+              <input name="male" class="gendercheck" type="checkbox" id="male" data-labelauty="남성|남성" unchecked value="true"/>
+            </div>
+            
+            <div class="col-md-3 col-xs-6">
+              <input name="female" class="gendercheck" type="checkbox" id="female" data-labelauty="여성|여성" unchecked value="true"/>  
+            </div>
+        </div>  
+
+  
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break2">
+            </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+              <input name="age" value="1" id ="age" class="agecheck" type="radio" data-labelauty="10대|10대" unchecked/>
+              <input name="age" value="2" id ="age" class="agecheck" type="radio" data-labelauty="20대|20대" unchecked/>
+              <input name="age" value="3" id ="age" class="agecheck" type="radio" data-labelauty="30대|30대" unchecked/>
+              <input name="age" value="4" id ="age" class="agecheck" type="radio" data-labelauty="40대|40대" unchecked/>
+              <input name="age" value="5" id ="age" class="agecheck" type="radio" data-labelauty="50대|50대" unchecked/>
+              
+            </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break2">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+                <span style="margin-right: 18px">느긋</span>
+                    <input type="radio" name="style" value="1"></input>
+                    <input type="radio" name="style" value="2"></input>
+                    <input type="radio" name="style" value="3"></input>
+                    <input type="radio" name="style" value="4"></input>
+                    <input type="radio" name="style" value="5"></input>
+                <span style="margin-left: 18px">빡빡</span>
+            </div>
+        </div>
+   
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break2">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+                <span style="margin-right: 18px">차분</span>
+                    <input type="radio" name="personality" value="1">
+                    <input type="radio" name="personality" value="2">
+                    <input type="radio" name="personality" value="3">
+                    <input type="radio" name="personality" value="4">
+                    <input type="radio" name="personality" value="5">
+                <span style="margin-left: 18px">활발</span>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break2">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+                <span style="margin-right: 18px">예산적음</span>
+                    <input type="radio" name="money" value="1"></input>
+                    <input type="radio" name="money" value="2"></input>
+                    <input type="radio" name="money" value="3"></input>
+                    <input type="radio" name="money" value="4"></input>
+                    <input type="radio" name="money" value="5"></input>
+                <span style="margin-left: 18px">예산많음</span>
+            </div>
+        </div>
+<!-- 추가항목 입력 end -->
+
+<!-- start of 적용 button -->
+        <div class="col-md-6 col-md-offset-6 col-xs-2 col-xs-offset-8" style="margin-top: 30px">
+            <div class="row">  
+                <button id="filterbutton">적용</button>
+            </div>
+        </div>   
+<!--end of 적용 button -->
+    <input type="hidden" name="region" value="<%=@region%>">
+    <input type="hidden" name="date" value="<%=@date%>">
+    <input type="hidden" name="food" value=<%=@food%>>
+    <input type="hidden" name="citytour" value="<%=@citytour%>">
+    <input type="hidden" name="suburbtour" value="<%=@suburbtour%>">
+    <input type="hidden" name="guidetour" value="<%=@guidetour%>">
+    <input type="hidden" name="concert" value="<%=@concert%>">
+    <input type="hidden" name="sports" value="<%=@sports%>">
+    <input type="hidden" name="gallery" value="<%=@gallery%>">
+    <input type="hidden" name="museum" value="<%=@museum%>">
+    <input type="hidden" name="historic" value="<%=@historic%>">
+    <input type="hidden" name="room" value="<%=@room%>">
+    <input type="hidden" name="car" value="<%=@car%>">
+ 
+    </form>
+  </div>  <!-- end of content div -->
+</div>  <!-- end of container -->  
+
+<!-- ******************** FOOTER DO NOT TOUCH EXCEPT CHANGE COLOR  -->          
+    <div class="row">
+        <nav class="navbar navbar-dafult navbar-fixed-bottom">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="footer">
+                    <img class="h" src="/assets/footer/fhome-g" alt="footer home grey">
+                    <img class="h" src="/assets/footer/falarm-g" alt="footer alarm grey">
+                    <img class="h" src="/assets/footer/fchat-g" alt="footer chat grey">
+                    <img class="h" src="/assets/footer/fprofile-g" alt="footer profile grey">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- ******************** FOOTER DO NOT TOUCH EXCEPT CHANGE COLOR  -->    
+
+
+
+    <script>
+//go back javascript
+    function goBack() {
+        window.history.back();
+    }
+    
+   //data label 
+    $(document).ready(function(){
+      $(".agecheck").labelauty();
+    });
+
+    $(document).ready(function(){
+      $(".gendercheck").labelauty();
+    });
+    
+    $(document).ready(function(){
+      $(".purposecheck").labelauty();
+    });    
+    </script>

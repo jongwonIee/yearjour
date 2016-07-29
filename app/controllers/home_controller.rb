@@ -5,92 +5,292 @@ class HomeController < ApplicationController
 
   end
   
+  def main
+      @posts = Post.all.reverse    
+    
+  end
+  
   def create
-    post = Post.new(title: params[:title], content: params[:content], place: params[:place], date: params[:date],
-      food: params[:food], citytour: params[:citytour], suburbtour: params[:suburbtour], guidetour: params[:guidetour],
-      concert: params[:concert], sports: params[:sports], gallery: params[:gallery], museum: params[:museum],
-      historic: params[:historic], room: params[:room], car: params[:car]
-      )
-    
-    if post.save
-      redirect_to "/home/index"
-    end
   end
   
-  def upload
-    file = params[:pic]
+  def create_result
     
-    uploader = LightUploader.new
-    uploader.store!(file)
-    
-    flash[:notice] = "전송되었습니다!"
-    redirect_to "/home/index"
-
+    @posts = Post.all.reverse.first
+  
   end
-
-  def write
-      post = Post.new(title: params[:title], content: params[:content], place: params[:place], date: params[:date],
-      food: params[:food], citytour: params[:citytour], suburbtour: params[:suburbtour], guidetour: params[:guidetour],
-      concert: params[:concert], sports: params[:sports], gallery: params[:gallery], museum: params[:museum],
-      historic: params[:historic], room: params[:room], car: params[:car]
-      )
+  
+  def creator
+    post = Post.new(
+    title: params[:title], content: params[:content], region: params[:region],
+    place: params[:place], date: params[:date], time: params[:time], people: params[:people],
+    
+    food: params[:food], citytour: params[:citytour], suburbtour: params[:suburbtour],
+    guidetour: params[:guidetour], concert: params[:concert], sports: params[:sports],
+    gallery: params[:gallery], museum: params[:museum],
+    historic: params[:historic], room: params[:room], car: params[:car],
+    
+    male: params[:male], female: params[:female],
+    age: params[:age],
+    style: params[:style], personality: params[:personality], money: params[:money]
+    )
     
     if post.save
-      redirect_to "/home/index"
+      redirect_to "/home/create_result"
     else
-      render :text => post.errors.messages[:title].first
+      redirect_to "/home/create"
     end
-    
   end
 
-  def reply_write
-
-    reply = Reply.new
-    reply.content = params[:comment]
-    reply.post_id = params[:postid]
-    reply.save
-    
-    redirect_to "/home/index"
-    
-  end
-  
-  def reply_destroy
-    @one_reply = Reply.find(params[:id])
-    @one_reply.destroy
-    redirect_to '/home/index'
-      
-  end
 
   def destroy
     @one_post = Post.find(params[:id])
     @one_post.destroy
     redirect_to '/home/index'
-
   end
   
-  def update_view
-    @one_post = Post.find(params[:id])
-  end
-  
-  def update_act
-    @one_post = Post.find(params[:id])
-    @one_post.title = params[:head]
-    @one_post.content = params[:body]
-    @one_post.save
     
-    redirect_to '/home/index'
-  end    
   
-  def reply_update_view
-    @one_reply = Reply.find(params[:id])
+  def search
   end
   
-  def reply_update_act
-    @one_reply = Reply.find(params[:id])
-    @one_reply.content = params[:body]
-    @one_reply.save
+  def search_result
     
-    redirect_to '/home/index'
-  end  
-
+    region = params[:region]
+    @region = params[:region]
+    date = params[:date]
+    @date = params[:date]
+    
+    unless params[:food].nil?
+      food = true
+      @food = true
+    else
+      @food = false
+    end
+    
+    unless params[:citytour].nil?
+      citytour = true
+      @citytour = true
+    else
+      @citytour = false
+    end
+    
+    unless params[:suburbtour].nil?
+      suburbtour = true
+      @suburbtour = true
+    else
+      @suburbtour = false
+    end
+    
+    unless params[:guidetour].nil?
+      guidetour = true
+      @guidetour = true
+    else
+      @guidetour = false
+    end
+    
+    unless params[:concert].nil?
+      concert = true
+      @concert = true
+    else
+      @concert = false
+    end
+    
+    unless params[:sports].nil?
+      sports = true
+      @sports = true
+    else
+      @sports = false
+    end
+    
+    unless params[:gallery].nil?
+      gallery = true
+      @gallery = true
+    else
+      @gallery = false
+    end
+    
+    unless params[:museum].nil?
+      museum = true
+      @museum = true
+    else
+      @museum = false
+    end
+    
+    unless params[:historic].nil?
+      historic = true
+      @historic = true
+    else
+      @historic = false
+    end
+    
+    unless params[:room].nil?
+      room = true
+      @room = true
+    else
+      @room = false
+    end
+    
+    unless params[:car].nil?
+      car = true
+      @car = true
+    else
+      @car = false
+    end
+    
+    
+    
+    
+    post = Post.where("((region = ?) and (date = ?) and (food = ? or citytour = ? or suburbtour =? or guidetour =? or concert =? or sports =? or gallery =? or museum =? or historic =? or room =?))",
+    region, date, food, citytour, suburbtour, guidetour, concert, sports, gallery, museum, historic, room)
+    @posts = post.reverse
+    
+  end
+  
+  def filter
+    
+    region = params[:region]
+    @region = params[:region]
+    date = params[:date]
+    @date = params[:date]
+    
+    unless params[:food].nil?
+      food = true
+    end
+      @food = params[:food]
+    unless params[:citytour].nil?
+      citytour = true
+    end
+      @citytour = params[:citytour]
+    unless params[:suburbtour].nil?
+      suburbtour = true
+    end
+      @suburbtour = params[:suburbtour]
+    unless params[:guidetour].nil?
+      guidetour = true
+    end
+      @guidetour = params[:guidetour]
+    unless params[:concert].nil?
+      concert = true
+    end
+      @concert = params[:concert]
+    unless params[:sports].nil?
+      sports = true
+    end
+      @sports = params[:sports]
+    unless params[:gallery].nil?
+      gallery = true
+    end
+      @gallery = params[:gallery]
+    unless params[:museum].nil?
+      museum = true
+    end
+      @museum = params[:museum]
+    unless params[:historic].nil?
+      historic = true
+    end
+      @historic = params[:historic]
+    unless params[:room].nil?
+      room = true
+    end
+      @room = params[:room]
+    unless params[:car].nil?
+      car = true
+    end
+      @car = params[:car]
+     
+    unless params[:male].nil?
+      male = true
+    end
+      @male = params[:male]
+    unless params[:female].nil?
+      female = true
+    end
+      @female = params[:female]
+      
+    age = params[:age]
+    style = params[:style]
+    personality = params[:personality]
+    money = params[:money]
+  
+  end
+  
+  def filter_result
+    
+    region = params[:region]
+    @region = params[:region]
+    date = params[:date]
+    @date = params[:date]
+    
+    unless params[:food].nil?
+      food = true
+    end
+      @food = params[:food]
+    unless params[:citytour].nil?
+      citytour = true
+    end
+      @citytour = params[:citytour]
+    unless params[:suburbtour].nil?
+      suburbtour = true
+    end
+      @suburbtour = params[:suburbtour]
+    unless params[:guidetour].nil?
+      guidetour = true
+    end
+      @guidetour = params[:guidetour]
+    unless params[:concert].nil?
+      concert = true
+    end
+      @concert = params[:concert]
+    unless params[:sports].nil?
+      sports = true
+    end
+      @sports = params[:sports]
+    unless params[:gallery].nil?
+      gallery = true
+    end
+      @gallery = params[:gallery]
+    unless params[:museum].nil?
+      museum = true
+    end
+      @museum = params[:museum]
+    unless params[:historic].nil?
+      historic = true
+    end
+      @historic = params[:historic]
+    unless params[:room].nil?
+      room = true
+    end
+      @room = params[:room]
+    unless params[:car].nil?
+      car = true
+    end
+      @car = params[:car]
+     
+    unless params[:male].nil?
+      male = true
+    else
+      male = false
+    end
+    
+      @male = params[:male]
+    unless params[:female].nil?
+      female = true
+    else
+      female = false
+    end
+      @female = params[:female]
+    
+    age = params[:age]
+    style = params[:style]
+    personality = params[:personality]
+    money = params[:money]
+    
+    post = Post.where("((region = ?) and (date = ?) and (food = ? or citytour = ? or suburbtour =? or guidetour =? or concert =? or sports =? or gallery =? or museum =? or historic =? or room =?)
+    and (male =? or female =? )and (age =? )and (style =? )and (personality =? )and (money =? ))",
+    region, date, food, citytour, suburbtour, guidetour, concert, sports, gallery, museum, historic, room,
+    male, female, age, style, personality, money)
+    
+    @posts = post.reverse
+   
+  end
 end

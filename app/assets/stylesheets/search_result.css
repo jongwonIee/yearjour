@@ -1,0 +1,40 @@
+    #title {
+        font-weight: 700;
+        font-size: 1.5em;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    } 
+    
+    h4 {
+        margin-top: 2px;
+    }
+    
+    #search_button {
+        height: 23px;
+        width: 76px;
+        vertical-align: middle;
+        text-align: center;
+        display: inline-block;
+        font-size: 12px;
+        border-radius: 5px;
+        border: 2px solid #b0afaf ;
+        color: black;
+        background-color: white;
+        
+    }
+
+    #break5 {
+        border-width: 1px;
+        border-color: #adadac;
+        margin-top: 15px;
+    }
+    
+    .starcheck + label {
+        margin: 0;
+        font-weight: 200;
+    }
+    
+    #marvelapp {
+        color: black;
+        text-decoration: none ;
+    }

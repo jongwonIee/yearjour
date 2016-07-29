@@ -1,0 +1,122 @@
+
+
+    #content {
+        /* margin-bottom: 50px; revive when there is a footer */
+        
+    }
+
+
+    #titleinput {
+        width: 100%;
+        height: 3.5em;
+        border: none; 
+        
+        color: #f3822c;  /* change [input cursor color] by this*/
+        text-shadow: 0px 0px 0px black; /* change [input font] by this*/
+        -webkit-text-fill-color: transparent;
+    }
+    
+    #titleinput:focus {
+        outline-color: transparent;
+        outline-style: none;
+        border: 2px solid #f3822c;
+        box-shadow: 0 0 5px #f3822c; /*if the designers say the glow is ugly, delete this line*/
+    }
+
+    #filterbutton {
+        border: none;
+        height: 23px;
+        line-height: 23px;
+        width: 40px;
+        vertical-align: middle;
+        text-align: center;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 5px;
+        color: white;
+        background: #f3822c;
+        font-weight: 700;
+    }
+
+    
+    .fa {
+        margin-top: 15px;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+    }
+    
+    #contentinput {
+        border: none;
+        width: 73%;
+        padding: 4px;
+        text-align: center;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 200;
+        border-radius: 5px;
+        background-color: #e1e1e1;
+        color: black;
+        margin-left: 5px;
+    }
+    
+    #break2 {
+        border-width: 1px;
+        border-color: #adadac;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+        
+    }
+    
+    .gendercheck + label{
+        margin-left: 50px;
+    }
+    
+    .purposecheck + label {
+        padding: 0 0 0 0;
+        height: 15px ;
+        width: 15px;
+        border-radius: 1px;
+        position: absolute;
+        top: 2px;
+        left: 10px;
+    }
+    
+    input[type='radio'] {
+        -webkit-appearance:none;
+        width:15px;
+        height:15px;
+        margin-left: 9px;
+        margin-right: 9px;
+        border:2px solid #b0afaf;
+        border-radius:50%;
+        outline:none;
+    }
+    input[type='radio']:hover {
+        box-shadow:0 0 3px 0px #f3822c inset;
+    }
+    input[type='radio']:before {
+        content:'';
+        display:block;
+        width:100%;
+        height:100%; 
+        border-radius:50%;   
+    }
+    
+    input[type='radio']:checked:before {
+        background:#f3822c;
+    }
+    
+    input[type='radio']:checked {
+      border: 2px solid #f3822c;
+    }
+    
+    div div span {
+        font-weight: 700;
+        
+    }
+    
+
+
+    

@@ -1,61 +1,281 @@
-<div class="container well" style="margin-top: 5%">
-    <div class="rows">
-    <form action="/home/write" method="POST">
-        <div class="form-group">
-          <label for="usr">제목:</label>
-          <input name="title" type="text" class="form-control" id="usr">
-        </div> 
-        <div class="form-group">
-          <label for="comment">내용:</label>
-          <textarea name="content" class="form-control" rows="5" id="comment"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="place">장소:</label>
-          <input name="place" type="text" class="form-control" id="usr">
-        </div>
-        <div class="form-group">
-          <label for="date">날짜:</label>
-          <input name="date" type="text" class="form-control" id="usr">
+<head>
+  
+  <link type="text/css" rel="stylesheet" href="create.css"/>
+  
+</head>
+
+
+
+<div class="container">
+  <form action="/home/creator" method="POST">
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+    <div class="row">
+        <nav class="navbar navbar-fixed-top">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 text-center">
+                <div id="header">
+                    <img id="hback" onclick="goBack()" class="h" src="/assets/header/h_back.png" alt="header back"></a>
+                    <img class="h" src="/assets/header/h_create.png" alt="header title">
+                    <a href="/home/search"><img id="hright2" class="h" src="/assets/header/headerleft.png" alt="header search"></a>
+                    <img id="hright" class="h" src="/assets/header/h_side.png" alt="header hamburger">
+                </div>
+            </div>
+        </nav>
+    </div>
+<!-- 저어어어러얼대로 헤더 건드리지말 것 -->
+
+    <div id="content">
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            
+<!-- 방 제목 입력 창 --> 
+          <div class="row">
+              <input name="title" id="titleinput" type="text" placeholder="모임 이름을 작성해주세요.">
+          </div>
+
+    <br>
+<!-- 필수항목 begin --> 
+            <div class="row">
+                <div id="sticker" class="sticker">필수항목</div>
+            </div>
         </div>
         
-        <div class="row">
-            <div class ="col-md-4">
-              <input type="checkbox" name="food"> 식사 <br>
+        <div class="row"> 
+            <div class="col-md-3 col-md-offset-3 col-xs-6 col-xs-offset-0">
+                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> 
+                <input name="region" id="contentinput" placeholder="(도시,) 국가" />
             </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="citytour"> 시내 투어 <br>
+            
+            <div class="col-md-3 col-xs-6">
+                <i class="fa fa-map fa-2x" aria-hidden="true"></i> 
+                <input name="place" id="contentinput" placeholder="구체적 장소"/>
             </div>
-            <div class ="col-md-4">
-                <input type="checkbox" name="suburbtour"> 근교 투어 <br>
+        </div>   
+        
+        <div class="row"> 
+            <div class="col-md-3 col-md-offset-3 col-xs-6 col-xs-offset-0">
+                <i class="fa fa-calendar fa-2x" aria-hidden="true"></i> 
+                <input name="date" id="contentinput" placeholder="-월 -일" />
             </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="guidetour"> 가이드 투어 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="concert"> 콘서트 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="sports"> 스포츠 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="gallery"> 미술관 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="museum"> 박물관 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="historic"> 유적지 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="room"> 룸 쉐어링 <br>
-            </div>
-            <div class ="col-md-4">
-              <input type="checkbox" name="car"> 카 쉐어링 <br>
+            
+            <div class="col-md-3 col-xs-6">
+                <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> 
+                <input name="time" id="contentinput" placeholder="-시" />
             </div>
         </div>
-        <br>
-      <button type="submit" class="btn btn-default">작성하기</button>
-    </form>
-</div>
-</div>
+        
+        <div class="row"> 
+            <div class="col-md-3 col-md-offset-3 col-xs-6 col-xs-offset-0">
+                <i class="fa fa-users fa-2x" aria-hidden="true"></i> 
+                <input name="people" id="contentinput" placeholder="인원수" />
+            </div>
+        </div>  
+
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="margin-top: 10px">
+                <hr id="break">
+            </div>
+        </div>
+<!-- 필수항목 입력들 end -->
+
+<!-- 목적 checkbox begin -->
+
+        <div class="row" style="text-align :center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="food" data-labelauty="|" unchecked> 식사         
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="citytour" data-labelauty="|" unchecked> 시내동행      
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="suburbtour" data-labelauty="|" unchecked> 근교방문      
+            </div>
+        </div>
+        
+        <div class="row" style="text-align :center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="guidetour" data-labelauty="|" unchecked> 가이드투어      
+            </div>
+        
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="concert" data-labelauty="|" unchecked> 콘서트         
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="sports" data-labelauty="|" unchecked> 스포츠      
+            </div>
+        </div>
+
+        <div class="row" style="text-align :center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="gallery" data-labelauty="|" unchecked> 미술관      
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="museum" data-labelauty="|" unchecked> 박물관      
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="historic" data-labelauty="|" unchecked> 유적지        
+            </div>
+        </div>
+        
+        <div class="row" style="text-align: center">
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="room" data-labelauty="|" unchecked> 룸 쉐어링      
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+              <input class="purposecheck" type="checkbox" name="car" data-labelauty="|" unchecked> 카 쉐어링  
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="margin-top: 10px">
+                <hr id="break">
+            </div>
+        </div>        
+<!-- 목적 checkbox end -->
+
+
+<!-- 소개 입력 begin --> 
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <div id="sticker" class="sticker">소개</div>
+            </div>
+            
+            <div class="row">
+                <textarea name="content" style="margin-top: 10px" id="titleinput" type="text" placeholder="모임에 대한 간단한 소개를 작성해주세요."></textarea>
+            </div>
+
+            <div class="row" style="margin-top: 10px">
+                <hr id="break">
+            </div>
+        </div>
+<!-- 소개 입력 end --> 
+
+<!-- 추가항목 입력 begin --> 
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <div id="extrasticker" class="sticker">+ 추가항목</div>
+                <br> <br>
+            </div>   
+        </div>
+        
+        <div class="row"> 
+            <div class="col-md-3 col-md-offset-3 col-xs-6 col-xs-offset-0 ">
+              <input name="male" class="gendercheck" type="checkbox" id="male" data-labelauty="남성|남성" unchecked/>
+            </div>
+            
+            <div class="col-md-3 col-xs-6">
+              <input name="female" class="gendercheck" type="checkbox" id="female" data-labelauty="여성|여성" unchecked/>  
+            </div>
+        </div>  
+
+  
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break">
+            </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+              <input name="age" value="1" id ="age" class="agecheck" type="radio" data-labelauty="10대|10대" unchecked/>
+              <input name="age" value="2" id ="age" class="agecheck" type="radio" data-labelauty="20대|20대" unchecked/>
+              <input name="age" value="3" id ="age" class="agecheck" type="radio" data-labelauty="30대|30대" unchecked/>
+              <input name="age" value="4" id ="age" class="agecheck" type="radio" data-labelauty="40대|40대" unchecked/>
+              <input name="age" value="5" id ="age" class="agecheck" type="radio" data-labelauty="50대|50대" unchecked/>
+              
+            </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+                <span style="margin-right: 18px">느긋</span>
+                    <input type="radio" name="style" value="1"></input>
+                    <input type="radio" name="style" value="2"></input>
+                    <input type="radio" name="style" value="3"></input>
+                    <input type="radio" name="style" value="4"></input>
+                    <input type="radio" name="style" value="5"></input>
+                <span style="margin-left: 18px">빡빡</span>
+            </div>
+        </div>
+   
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+                <span style="margin-right: 18px">차분</span>
+                    <input type="radio" name="personality" value="1">
+                    <input type="radio" name="personality" value="2">
+                    <input type="radio" name="personality" value="3">
+                    <input type="radio" name="personality" value="4">
+                    <input type="radio" name="personality" value="5">
+                <span style="margin-left: 18px">활발</span>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row">
+                <hr id="break">
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center">
+                <span style="margin-right: 18px">예산적음</span>
+                    <input type="radio" name="money" value="1"></input>
+                    <input type="radio" name="money" value="2"></input>
+                    <input type="radio" name="money" value="3"></input>
+                    <input type="radio" name="money" value="4"></input>
+                    <input type="radio" name="money" value="5"></input>
+                <span style="margin-left: 18px">예산많음</span>
+            </div>
+        </div>
+<!-- 추가항목 입력 end -->
+
+<!-- start of 모임만들기 button -->
+        <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+            <div class="row" style="text-align: center"> 
+                <button id="create" type="submit"> 모임 만들기!</button>
+            </div>
+        </div>   
+<!--end of 모임만들기 button -->
+        
+    </div>  <!-- end of content div -->
+    
+   </form>
+</div>  <!-- end of container -->
+
+
+    <script>
+//go back javascript
+    function goBack() {
+        window.history.back();
+    }
+    
+   //data label 
+    $(document).ready(function(){
+      $(".agecheck").labelauty();
+    });
+
+    $(document).ready(function(){
+      $(".gendercheck").labelauty();
+    });
+    
+    $(document).ready(function(){
+      $(".purposecheck").labelauty();
+    });    
+    </script>
 

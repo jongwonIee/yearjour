@@ -16,8 +16,11 @@ ActiveRecord::Schema.define(version: 20160725080428) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "region"
     t.string   "place"
     t.string   "date"
+    t.string   "time"
+    t.string   "people"
     t.boolean  "food"
     t.boolean  "citytour"
     t.boolean  "suburbtour"
@@ -29,13 +32,17 @@ ActiveRecord::Schema.define(version: 20160725080428) do
     t.boolean  "historic"
     t.boolean  "room"
     t.boolean  "car"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "male"
+    t.boolean  "female"
+    t.integer  "age"
+    t.integer  "style"
+    t.integer  "personality"
+    t.integer  "money"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "replies", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
