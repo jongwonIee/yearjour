@@ -110,8 +110,7 @@
                     <% if p.car == true %>
                         <%= "카 쉐어링" %>
                     <% end %>
-                                        
-                / 
+                   
                     <% if p.male == true %>
                       <%= "남성" %>
                     <% end %>
@@ -165,108 +164,3 @@
       $(".starcheck").labelauty();
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="well container">
-    <% @posts.each do |p| %>
-        <div class="well">
-            <div>
-                <center><h1>"<%= p.title %>"</h1></center>
-                <br>
-                <div class="row">
-                  <div class="form-group col-xs-4">
-                    <p>날짜: <p>
-                    <p><%= p.date %> </p>
-                  </div>
-                  
-                  <div class="form-group col-xs-4">
-                    <p>지역: <p>
-                    <p><%= p.region %> </p>
-                  </div>
-                  
-                  <div class="form-group col-xs-4">
-                    <p>인원 수: </p>
-                    <p><%= p.people %> </p>
-                  </div>
-                </div>
-                  <p>
-                    카테고리:
-                    <% if p.food == true %>
-                        <%= "식사" %>
-                    <% end %>
-                    
-                    <% if p.citytour == true %>
-                        <%= "시내 투어" %>
-                    <% end %>
-                    
-                    <% if p.suburbtour == true %>
-                        <%= "근교 투어" %>
-                    <% end %>
-                    
-                    <% if p.guidetour == true %>
-                        <%= "가이드 투어" %>
-                    <% end %>
-                    
-                    <% if p.concert == true %>
-                        <%= "콘서트" %>
-                    <% end %>
-                    
-                    <% if p.sports == true %>
-                        <%= "스포츠" %>
-                    <% end %>
-                    
-                    <% if p.gallery == true %>
-                        <%= "갤러리" %>
-                    <% end %>
-                    
-                    <% if p.museum == true %>
-                        <%= "박물관" %>
-                    <% end %>
-                    
-                    <% if p.historic == true %>
-                        <%= "유적지" %>
-                    <% end %>
-                    
-                    <% if p.room == true %>
-                        <%= "룸 쉐어링" %>
-                    <% end %>
-                    
-                    <% if p.car == true %>
-                        <%= "카 쉐어링" %>
-                    <% end %>
-                  </p>
-                  
-                  <p>
-                    참여가능 성별: 
-                    <% if p.male == true %>
-                      <%= "남성" %>
-                    <% end %>
-                    <% if p.female == true %>
-                      <%= "여성" %>
-                    <% end %>
-                  </p>
-                  
-                </div>
-            </div>       
-        
-    <% end %>
-</div>
-    
-    
- 
-</div>
-
